@@ -30,6 +30,7 @@ This is a small program which is used to Fix the "DNS Not Responding" Problem in
   <br />
   <img src="src/Control_Panel_1.png" alt="Control Panel - Network and Internet" >
   <br />
+  <br />
 </div>
 
 - Click on "Network and Sharing Center"
@@ -38,6 +39,7 @@ This is a small program which is used to Fix the "DNS Not Responding" Problem in
   <br />
   <img src="src/Control_Panel_2.png" alt="Control Panel - Network and Sharing Center" >
   <br />
+  <br />
 </div>
 
 - Click on the device casuing that problem.
@@ -45,6 +47,7 @@ This is a small program which is used to Fix the "DNS Not Responding" Problem in
 <div align="center">
   <br />
   <img src="src/Control_Panel_3.jpg" alt="Control Panel - Network and Sharing Center" >
+  <br />
   <br />
 </div>
 
@@ -55,6 +58,7 @@ This is a small program which is used to Fix the "DNS Not Responding" Problem in
   <br />
   <img src="src/Ethernet_Status.png" alt="Dialog box - Ethernet Status" >
   <br />
+  <br />
 </div>
 
 - Another dialog box named "Ethernet Properties" will be opened.
@@ -64,6 +68,7 @@ This is a small program which is used to Fix the "DNS Not Responding" Problem in
   <br />
   <img src="src/Ethernet_Properties.png" alt="Dialog box - Ethernet Properties" >
   <br />
+  <br />
 </div>
 
 - Another dialog box named "Internet Protocol Version 4 (TCP/IPv4) Properties" will be opened.
@@ -72,6 +77,7 @@ This is a small program which is used to Fix the "DNS Not Responding" Problem in
 <div align="center">
   <br />
   <img src="src/IPv4_Properties_1.png" alt="Dialog box - Internet Protocol Version 4 (TCP/IPv4) Properties" >
+  <br />
   <br />
 </div>
 
@@ -83,6 +89,7 @@ This is a small program which is used to Fix the "DNS Not Responding" Problem in
 <div align="center">
   <br />
   <img src="src/IPv4_Properties_2.png" alt="Dialog box - Internet Protocol Version 4 (TCP/IPv4) Properties" >
+  <br />
   <br />
 </div>
 
