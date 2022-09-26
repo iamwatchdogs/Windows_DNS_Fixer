@@ -46,7 +46,7 @@ This is a small program which is used to Fix the "DNS Not Responding" Problem in
 
 <div align="center">
   <br />
-  <img src="src/Control_Panel_3.ppg" alt="Control Panel - Network and Sharing Center" >
+  <img src="src/Control_Panel_3.png" alt="Control Panel - Network and Sharing Center" >
   <br />
   <br />
 </div>
