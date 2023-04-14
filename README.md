@@ -1,4 +1,4 @@
-# Windows_DNS_Fixer
+# Windows_DNS_Fixer <img src="https://github.com/iamwatchdogs/Windows_DNS_Fixer/actions/workflows/code_linting.yml/badge.svg" alt="code lint status" align="right" />
 
 This is a small program which is used to Fix the "DNS Not Responding" Problem in  windows. They make look something like...
 
