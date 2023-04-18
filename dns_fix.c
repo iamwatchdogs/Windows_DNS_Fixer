@@ -50,19 +50,24 @@ int main(int argc, char * argv[])
 				case 2:
 					inside_dns_fix();
 					break;
-				
-				// option - 3: Goto Project URL.
+
+				// option - 3: Displays the commandline arguments.
 				case 3:
+					display_options();
+					break;
+
+				// option - 4: Goto Project URL.
+				case 4:
 					visitSourceProject();
 					break;
 
-				// option - 4: Goto Latest Version URL.
-				case 4:
+				// option - 5: Goto Latest Version URL.
+				case 5:
 					visitLatestVersion();
 					break;
 
-				// option - 5: Displays the help documentation.
-				case 5:
+				// option - 6: Displays the help documentation.
+				case 6:
 					help_documentation();
 					break;
 
@@ -132,9 +137,10 @@ int showMenu(void)
 	puts("Please select one of the following options:");
 	puts("1. Fix my DNS.");
 	puts("2. View the commands used.");
-	puts("3. Visit this Open-Source project.");
-	puts("4. Get the latest version.");
-	puts("5. Help.");
+	puts("3. View commandline arguments");
+	puts("4. Visit this Open-Source project.");
+	puts("5. Get the latest version.");
+	puts("6. Help.");
 	puts("0. Exit");
 
 	printf("\nEnter you option: ");
