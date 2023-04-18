@@ -29,7 +29,7 @@ int main(int argc, char * argv[])
 	{
 		executeCommandLineInterface( argv[1] );
 	}
-	
+
 	// If the user is running the .exe file directly.
 	else
 	{
@@ -166,11 +166,11 @@ void redirectLatestVersion(void)
 
 void optionExecutor (int option)
 {
+	BOOL quickExit = FALSE;
 	switch (option)
 	{
 		// option - 0: Exit.
 		case 0:
-			closeInteractiveSession(FALSE);
 			break;
 
 		// option - 1: Fixes DNS.
@@ -192,10 +192,13 @@ void optionExecutor (int option)
 				// option - 4: Goto Project URL.
 		case 4:
 			redirectSourceProject();
+			quickExit = TRUE;
+			break;
 
 				// option - 5: Goto Latest Version URL.
 		case 5:
 			redirectLatestVersion();
+			quickExit = TRUE;
 			break;
 
 		// option - 6: Displays the help documentation.
@@ -211,5 +214,6 @@ void optionExecutor (int option)
 			getchar();
 			exit(2);
 	}
-	return ;
+
+	closeInteractiveSession(quickExit);
 }

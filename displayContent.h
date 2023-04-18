@@ -7,7 +7,7 @@
 #include <string.h>
 #include "displayUtil.h"
 
-#define VERSION "v1.0.0"
+#define VERSION NULL
 
 #endif
 
@@ -65,7 +65,7 @@ void insideDnsFix( void )
 	puts("\t5. NETSH winsock reset catalog");
 	puts("\t6. NETSH int ipv4 reset reset.log");
 	puts("\t7. NETSH int ipv6 reset reset.log");
-	closeInteractiveSession(FALSE);
+	return ;
 }
 
 // Displays the available options (or) acceptable arguments of this program.
@@ -84,7 +84,7 @@ void displayCommandLineArgs ( void )
 	puts("-v (or) --version  : To know the current version.\n");
 	
 	puts("\n-------------------------------------------------------------------------------------------");
-	closeInteractiveSession(FALSE);
+	return ;
 }
 
 // Documenting the program into -help argument.
@@ -105,22 +105,24 @@ void helpDocumentation ( void )
 	puts("Description:");
 	puts("-------------------------------------------\n");
 	
-	puts("\"dns_fix.exe\" is a program is used to fix the \"DNS not responding problem.\" in WINDOWS OS.");
-	puts("These are set of command line commands which deals with this problem even after setting their DNS server manually to the ones of the google standard one.");
+	printf("\"dns_fix.exe\" is a program is used to fix the \"DNS not responding problem.\" in WINDOWS OS.");
+	printf("These are set of command line commands which deals with this problem even after setting their DNS server manually to the ones of the google standard one.");
 	puts("If you haven\'t tried the first option, then I suggest you to try fix it that way because most of the times it fixes just by manually setting the DNS server address.");
 	
-	puts("\nFor more details, You can checkout this project wbesite: https://github.com/iamwatchdogs/Windows_DNS_Fixer");
+	puts("\nFor more details, You can checkout this project website: https://github.com/iamwatchdogs/Windows_DNS_Fixer");
 	
 	puts("\nNote:");
-	puts("Make sure that this program is execute under Administrator level access, as some the commands used in this program require Administrator level access.");
+	printf("Make sure that this program is execute under Administrator level access, as some the commands used in this program require Administrator level access.");
 	puts("So, to make sure that this program fulfill it purpose successfully. Run the cmd ( if you are will to execute it on cmd ) or the dns_fix.exe file as Administrator");
 
     insideDnsFix();
     
 	displayCommandLineArgs();
 
+    puts("\n-------------------------------------------");
 	printf("\nPatch Note (New Release %s):\n",VERSION);
+    puts("-------------------------------------------\n");
 	// puts("\tWill fill at the end of the renewly");
 	
-	closeInteractiveSession(FALSE);
+	return ;
 }
