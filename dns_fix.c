@@ -7,12 +7,12 @@
 #define VERSION "v1.0.0"
 
 // Funciton Prototyping
-char * to_lower_str ( char * );
-void inside_dns_fix( void );
-void help_documentation ( void );
-void dns_fixing_commands ( void );
-void display_options ( void );
-void command_line_interface (char * args);
+char * toLowerStr ( char * );
+void insideDnsFix( void );
+void helpDocumentation ( void );
+void executeDnsFixingCommands ( void );
+void displayCommandLineArgs ( void );
+void executeCommandLineInterface (char * args);
 
 // Driver Program
 int main(int argc, char * argv[])
@@ -23,7 +23,7 @@ int main(int argc, char * argv[])
 	// If the user is executing through command line interface.
 	if( argc > 1 )
 	{
-		command_line_interface( argv[1] );
+		executeCommandLineInterface( argv[1] );
 	}
 	
 	// If the user is running the .exe file directly.
@@ -42,17 +42,17 @@ int main(int argc, char * argv[])
 
 				// option - 1: Fixes DNS.
 				case 1:
-					dns_fixing_commands();
+					executeDnsFixingCommands();
 					break;
 
 				// option - 2: Displays the commands.
 				case 2:
-					inside_dns_fix();
+					insideDnsFix();
 					break;
 
 				// option - 3: Displays the commandline arguments.
 				case 3:
-					display_options();
+					displayCommandLineArgs();
 					break;
 
 				// option - 4: Goto Project URL.
@@ -112,7 +112,7 @@ int showMenu(void)
 }
 
 // The main DNS problem fixing commands.
-void dns_fixing_commands ( void )
+void executeDnsFixingCommands ( void )
 {
 	system("cls");
 	system("ipconfig /flushdns");
@@ -137,7 +137,7 @@ void dns_fixing_commands ( void )
 }
 
 // To convert the given string into lower case.
-char * to_lower_str ( char * str )
+char * toLowerStr ( char * str )
 {
 	for( int j = 0; j < strlen(str); ++j )
 		str[j] = tolower(str[j]);
@@ -145,7 +145,7 @@ char * to_lower_str ( char * str )
 }
 
 // Displays the commands which this program will execute to fix the problem.
-void inside_dns_fix( void )
+void insideDnsFix( void )
 {
 	puts("Following commands are executed by executing this program:\n");
 	puts("\t1. ipconfig /flushdns");
@@ -159,7 +159,7 @@ void inside_dns_fix( void )
 }
 
 // Documenting the program into -help argument.
-void help_documentation ( void )
+void helpDocumentation ( void )
 {
 	puts("\n-------------------------------------------");
 	puts("Help:");
@@ -189,13 +189,13 @@ void help_documentation ( void )
 	puts("\nPatch Note (New Release v1.0):");
 	// puts("\tWill fill at the end of the renewly");
 	
-	display_options();
+	displayCommandLineArgs();
 	
 	return ;
 }
 
 // Displays the available options (or) acceptable arguments of this program.
-void display_options ( void )
+void displayCommandLineArgs ( void )
 {
 	puts("\n-------------------------------------------\n");
 	puts("Options/Arguments:");
@@ -213,40 +213,40 @@ void display_options ( void )
 }
 
 // When user uses command line to execute the program ( args are arrange in alphabetical order ).
-void command_line_interface (char * args)
+void executeCommandLineInterface (char * args)
 {
 	// Displays the commands used to resolve the DNS problem.
-	if( !strcmp(to_lower_str(args),"-i" ) )
+	if( !strcmp(toLowerStr(args),"-i" ) )
 	{
-		inside_dns_fix();
+		insideDnsFix();
 	}
 	
 	// To execute the program directly without asking to verify whether it's gonna execute in -
 	// - Administrator mode or not.
-	else if( !strcmp(to_lower_str(args),"-y") )
+	else if( !strcmp(toLowerStr(args),"-y") )
 	{
 		puts("\n-------------------------------------------");
 		puts("Note:");
 		puts("-------------------------------------------");
 		puts("The program is being execute assuming that it is in Administrator mode...");
 		Sleep(1500);
-		dns_fixing_commands();
+		executeDnsFixingCommands();
 	}
 	
 	// Displays the documentation of this program.
-	else if( !strcmp(to_lower_str(args),"-help"))
+	else if( !strcmp(toLowerStr(args),"-help"))
 	{
 		help_documentation();
 	}
 	
 	// To display available options (or) arguments in this program.
-	else if( !strcmp(to_lower_str(args),"-options"))
+	else if( !strcmp(toLowerStr(args),"-options"))
 	{
-		display_options();
+		displayCommandLineArgs();
 	}
 	
 	// Displays the version of this program.
-	else if( !strcmp(to_lower_str(args),"-version" ) )
+	else if( !strcmp(toLowerStr(args),"-version" ) )
 	{
 		printf("\ndns_fix.exe version %s\n",VERSION);
 	}
