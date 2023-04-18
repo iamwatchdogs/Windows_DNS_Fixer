@@ -7,9 +7,28 @@
 #include <string.h>
 #include "displayUtil.h"
 
-#define VERSION NULL
+#define VERSION "v1.0.0"
 
 #endif
+
+// Closes the Interactive Session.
+void closeInteractiveSession(BOOL quickClose)
+{
+	int count = 3;
+	printGreen("\nClosing the DNS FIX");
+	while(count--)
+	{
+		Sleep(250);
+		printGreen(".");
+	}
+	if(!quickClose)
+	{
+		puts("\nPress Enter to continue\n");
+		fflush(stdin);
+		getchar();
+	}
+	exit(0);
+}
 
 // Displays an interactive Menu and returns the user selected option.
 int showMenu(void)
@@ -38,7 +57,7 @@ int showMenu(void)
 // Displays the commands which this program will execute to fix the problem.
 void insideDnsFix( void )
 {
-	puts("Following commands are executed by executing this program:\n");
+	puts("\nFollowing commands are executed by executing this program:\n");
 	puts("\t1. ipconfig /flushdns");
 	puts("\t2. ipconfig /registerdns");
 	puts("\t3. ipconfig /release");
@@ -46,15 +65,15 @@ void insideDnsFix( void )
 	puts("\t5. NETSH winsock reset catalog");
 	puts("\t6. NETSH int ipv4 reset reset.log");
 	puts("\t7. NETSH int ipv6 reset reset.log");
-	return ;
+	closeInteractiveSession(FALSE);
 }
 
 // Displays the available options (or) acceptable arguments of this program.
 void displayCommandLineArgs ( void )
 {
-	puts("\n-------------------------------------------\n");
+	puts("\n-------------------------------------------------------------------------------------------\n");
 	puts("Options/Arguments:");
-	puts("-------------------------------------------\n");
+	puts("-------------------------------------------------------------------------------------------\n");
 	
 	puts("For the current version, the following options (or) Arguments are supported:\n");
 	puts("-a (or) --args     : To display the all available argumentsof this version of the program.\n");
@@ -64,8 +83,8 @@ void displayCommandLineArgs ( void )
 	puts("-u (or) --update   : Redirects to the releases of this Project.\n");
 	puts("-v (or) --version  : To know the current version.\n");
 	
-	puts("\n-------------------------------------------");
-	return ;
+	puts("\n-------------------------------------------------------------------------------------------");
+	closeInteractiveSession(FALSE);
 }
 
 // Documenting the program into -help argument.
@@ -93,34 +112,15 @@ void helpDocumentation ( void )
 	puts("\nFor more details, You can checkout this project wbesite: https://github.com/iamwatchdogs/Windows_DNS_Fixer");
 	
 	puts("\nNote:");
-	puts("\tMake sure that this program is execute under Administrator level access, as few commands used in this program require Administrator level access.");
-	puts("\tSo, to make sure that this program fulfill it purpose successfully. Run the cmd ( if you are will to execute it on cmd ) or the dns_fix.exe file as Administrator");
+	puts("Make sure that this program is execute under Administrator level access, as some the commands used in this program require Administrator level access.");
+	puts("So, to make sure that this program fulfill it purpose successfully. Run the cmd ( if you are will to execute it on cmd ) or the dns_fix.exe file as Administrator");
 
     insideDnsFix();
+    
 	displayCommandLineArgs();
-	
 
 	printf("\nPatch Note (New Release %s):\n",VERSION);
 	// puts("\tWill fill at the end of the renewly");
 	
-	return ;
-}
-
-// Closes the Interactive Session.
-void closeInteractiveSession(BOOL quickClose)
-{
-	int count = 3;
-	printGreen("\nClosing the DNS FIX");
-	while(count--)
-	{
-		Sleep(250);
-		printGreen(".");
-	}
-	if(!quickClose)
-	{
-		puts("\nPress Enter to continue\n");
-		fflush(stdin);
-		getchar();
-	}
-	exit(0);
+	closeInteractiveSession(FALSE);
 }

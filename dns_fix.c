@@ -86,7 +86,7 @@ int main(int argc, char * argv[])
 		}
 		else
 		{
-			printError("\nError: Please try to log in as Administrator for this program to work properly...\n");
+			printError("\n\nError: Please try to log in as Administrator for this program to work properly...\n");
 			puts("Press Enter to continue\n");
 			fflush(stdin);
 			getchar();
@@ -191,12 +191,18 @@ void redirectSourceProject(void)
 void redirectLatestVersion(void)
 {
 	int count = 3;
+	printf("\nCurrent Version is %s",VERSION);
+	Sleep(800);
+	puts("\nPlease Check for even higher vesion...");
+	Sleep(1200);
 	printGreen("\nRedirecting to Original Open-Source Project");
 	while(count--)
 	{
 		Sleep(175);
 		printGreen(".");
 	}
+	puts("\n");
+	Sleep(585);
 	system("start https://github.com/iamwatchdogs/Windows_DNS_Fixer/releases");
 	closeInteractiveSession(TRUE);
 }
