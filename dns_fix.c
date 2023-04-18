@@ -16,7 +16,8 @@ void command_line_interface (char * args);
 int main(int argc, char * argv[])
 {
 	// Funciton Prototyping
-	BOOL isExecutedAsAdmin();
+	BOOL isExecutedAsAdmin(void);
+	int showMenu(void);
 
 	// If the user is executing through command line interface.
 	if( argc > 1 )
@@ -27,18 +28,51 @@ int main(int argc, char * argv[])
 	// If the user is running the .exe file directly.
 	else
 	{
-		char c;
-		puts("\n---\tInteractive Session\t---\n");
+		puts("\n---\tRunning an Interactive Session\t---\t\n");
 		BOOL hasAdminAccess = isExecutedAsAdmin();
 		if( hasAdminAccess )
 		{
-			printf("Has admin access");
-			getchar();
-			// dns_fixing_commands();
+			int option = showMenu();
+			switch (option)
+			{
+				// option - 0: Exit.
+				case 0:
+					closeInteractiveSession();
+
+				// option - 1: Fixes DNS.
+				case 1:
+					dns_fixing_commands();
+					break;
+
+				// option - 2: Displays the commands.
+				case 2:
+					inside_dns_fix();
+					break;
+				
+				// option - 3: Goto Project URL.
+				case 3:
+					visitSourceProject();
+					break;
+
+				// option - 4: Goto Latest Version URL.
+				case 4:
+					visitLatestVersion();
+					break;
+
+				// option - 5: Displays the help documentation.
+				case 5:
+					help_documentation();
+					break;
+
+				// Other cases
+				default:
+					fprintf(stderr, "\033[31mError: Please select a proper option...\033[0m\n");
+					fprintf(stderr, "Press Enter to continue\n");
+			}
 		}
 		else
 		{
-			fprintf(stderr, "Error: Please try to log in as Administrator for this program to work properly...\n");
+			fprintf(stderr, "\033[31mError: Please try to log in as Administrator for this program to work properly...\033[0m\n");
 			fprintf(stderr, "Press Enter to continue\n");
 			fflush(stdin);
 			getchar();
@@ -51,7 +85,7 @@ int main(int argc, char * argv[])
 
 
 // Uses Windows API to determine if your program is running with administrative privileges.
-BOOL isElevated()
+BOOL isElevated(void)
 {
     HANDLE hToken = NULL;
     TOKEN_ELEVATION elevation = {0};
@@ -73,7 +107,8 @@ BOOL isElevated()
     return elevation.TokenIsElevated;
 }
 
-BOOL isExecutedAsAdmin()
+// Checks whether this program is executed as Administrator or not.
+BOOL isExecutedAsAdmin(void)
 {
 	int count = 3;
 	puts("This program requires Administrative Access !!!...");
@@ -86,6 +121,26 @@ BOOL isExecutedAsAdmin()
 	return isElevated();
 }
 
+// Displays an interactive Menu and returns the user selected option.
+int showMenu(void)
+{
+	int option = -1;
+
+	printf("\n---\tWelcome to DNS Fix v1.0.0\t---\n\n");
+	puts("Please select one of the following options:");
+	puts("1. Fix my DNS.");
+	puts("2. View the commands used.");
+	puts("3. Visit this Open-Source project.");
+	puts("4. Get the latest version.");
+	puts("5. Help.");
+	puts("0. Exit");
+
+	printf("\nEnter you option: ");
+	fflush(stdin);
+	scanf("%d", &option);
+
+	return option;
+}
 
 // The main DNS problem fixing commands.
 void dns_fixing_commands ( void )
@@ -156,7 +211,7 @@ void help_documentation ( void )
 	puts("These are set of command line commands which deals with this problem even after setting their DNS server manually to the ones of the google standard one.");
 	puts("If you haven\'t tried the first option, then I suggest you to try fix it that way because most of the times it fixes just by manually setting the DNS server address.");
 	
-	puts("For more details, You can checkout this project wbesite: https://github.com/iamwatchdogs/Windows_DNS_Fixer");
+	puts("\nFor more details, You can checkout this project wbesite: https://github.com/iamwatchdogs/Windows_DNS_Fixer");
 	
 	puts("\nNote:");
 	puts("\tMake sure that this program is execute under Administrator level access, as few commands used in this program require Administrator level access.");
