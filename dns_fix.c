@@ -107,7 +107,7 @@ int showMenu(void)
 	puts("Please select one of the following options:");
 	puts("1. Fix my DNS.");
 	puts("2. View the commands used.");
-	puts("3. View commandline arguments");
+	puts("3. View command line arguments");
 	puts("4. Visit this Open-Source project.");
 	puts("5. Get the latest version.");
 	puts("6. Help.");
@@ -211,11 +211,12 @@ void displayCommandLineArgs ( void )
 	puts("-------------------------------------------\n");
 	
 	puts("For the current version, the following options (or) Arguments are supported:\n");
-	puts("\t-y\t\t: To execute the program directly under the assumption that it is under Administrator level execution.\n");
-	puts("\t-i\t\t: To view to commands being executed to fix the DNS problem.\n");
-	puts("\t-version\t: To know the current version.\n");
-	puts("\t-help\t\t: To read the following content of this program.\n");
-	puts("\t-options\t: To display the available options persent in the persent version of the program.\n");
+	puts("-a (or) --args     : To display the all available argumentsof this version of the program.\n");
+	puts("-c (or) --commands : To view to commands being executed to fix the DNS problem.\n");
+	puts("-h (or) --help     : To read the following content of this program.\n");
+	puts("-p (or) --project  : Redirects to the Original Open-Source Project.\n");
+	puts("-u (or) --update   : Redirects to the releases of this Project.\n");
+	puts("-v (or) --version  : To know the current version.\n");
 	
 	puts("\n-------------------------------------------");
 	return ;
