@@ -24,6 +24,7 @@ int main(int argc, char * argv[])
 	else
 	{
 		char c;
+		puts("---\tInteractive Session\t---");
 		printf("Have you logged in as Administrator (Y/N) ? ");
 		fflush(stdin);
 		scanf("%c",&c);
@@ -31,12 +32,21 @@ int main(int argc, char * argv[])
 		{
 			dns_fixing_commands();
 		}
-		else
+		else if  ( c == 'n' || c == 'N' )
 		{
-			puts("Please try to log in as Administrator for this program to work properly...");
+			fprintf(stderr, "Error: Please try to log in as Administrator for this program to work properly...\n");
+			fprintf(stderr, "Press Enter to continue\n");
 			fflush(stdin);
 			getchar();
 			exit(1);
+		}
+		else 
+		{
+			fprintf(stderr, "Error: Invalid Input...\n");
+			fprintf(stderr, "Press Enter to continue\n");
+			fflush(stdin);
+			getchar();
+			exit(-1);
 		}
 	}
 	return 0;
@@ -96,10 +106,11 @@ void help_documentation ( void )
 	puts("Help:");
 	puts("-------------------------------------------\n");
 	
-	puts("Current Version: 1.1v");
+	puts("Current Version: v1.0.0");
 	puts("Author: Shamith");
 	puts("Written in: C programming Language");
 	puts("Created on: 26th September 2022");
+	puts("Updated on: 18th April 2023");
 	puts("Required Access: Administrator");
 	
 	puts("\n-------------------------------------------");
@@ -110,23 +121,14 @@ void help_documentation ( void )
 	puts("These are set of command line commands which deals with this problem even after setting their DNS server manually to the ones of the google standard one.");
 	puts("If you haven\'t tried the first option, then I suggest you to try fix it that way because most of the times it fixes just by manually setting the DNS server address.");
 	
-	puts("\nSteps to set manually set DNS server address:\n");
-	puts("\tOpen Control panel -> Click on Network and Internet -> ...");
-	puts("\t... -> Click on Networking and Sharing Center -> ...");
-	puts("\t... -> ( Then you can see you Internet connection device - it can be wifi or ethernet ) -> ...");
-	puts("\t... -> Click on your connective device ( the one beside label which says \'Connections\' ) -> ...");
-	puts("\t... -> ( Then a dialog box wil opened ) -> Click on Properties -> ( Then another dialog box wil opened ) -> ...");
-	puts("\t... -> Double click on the option named \"Internet Protocol Version 4(TCP/IPv4)\" -> ( Then another dialog box wil opened ) -> ...");
-	puts("\t... -> Select the option \"Use the following DNS server addresses.\" -> ( then it will enable 2 text boxes below that option ) -> ...");
-	puts("\t... -> Set \"8.8.8.8\" into Preferred DNS server and \"8.8.4.4\" into Alternative DNS server -> ...");
-	puts("\t... -> Now click on \"Ok\" button to every opened dialog box and close the Control Panel -> ...");
-	puts("\t... -> Now reset the system and check for Internet connectivity.");
-	
-	puts("\n\nEven after following the above step, the problem is still persent. Then, it is suggest to execute this program.");
+	puts("For more details, You can checkout this project wbesite: https://github.com/iamwatchdogs/Windows_DNS_Fixer");
 	
 	puts("\nNote:");
 	puts("\tMake sure that this program is execute under Administrator level access, as few commands used in this program require Administrator level access.");
 	puts("\tSo, to make sure that this program fulfill it purpose successfully. Run the cmd ( if you are will to execute it on cmd ) or the dns_fix.exe file as Administrator");
+
+	puts("\nPatch Note (New Release v1.0):");
+	// puts("\tWill fill at the end of the renewly");
 	
 	display_options();
 	
@@ -187,7 +189,7 @@ void command_line_interface (char * args)
 	// Displays the version of this program.
 	else if( !strcmp(to_lower_str(args),"-version" ) )
 	{
-		puts("\ndns_fix.exe version 1.1v");
+		puts("\ndns_fix.exe version 1.0.0v");
 	}
 	
 	// Default case of undefined/declined argument
