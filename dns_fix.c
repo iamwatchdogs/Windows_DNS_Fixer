@@ -68,7 +68,6 @@ int main(int argc, char * argv[])
 				// option - 5: Goto Latest Version URL.
 				case 5:
 					redirectLatestVersion();
-					puts("redirects to project's latest release url");
 					break;
 
 				// option - 6: Displays the help documentation.
