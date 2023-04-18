@@ -21,6 +21,7 @@ int main(int argc, char * argv[])
 	// Funciton Prototyping
 	int showMenu(void);
 	void visitSourceProject(void);
+	void visitLatestVersion(void);
 
 	// If the user is executing through command line interface.
 	if( argc > 1 )
@@ -66,7 +67,7 @@ int main(int argc, char * argv[])
 
 				// option - 5: Goto Latest Version URL.
 				case 5:
-					// visitLatestVersion();
+					visitLatestVersion();
 					puts("redirects to project's latest release url");
 					break;
 
@@ -185,5 +186,18 @@ void visitSourceProject(void)
 		printGreen(".");
 	}
 	system("start https://github.com/iamwatchdogs/Windows_DNS_Fixer");
+	closeInteractiveSession(TRUE);
+}
+
+void visitLatestVersion(void)
+{
+	int count = 3;
+	printGreen("\nRedirecting to Original Open-Source Project");
+	while(count--)
+	{
+		Sleep(175);
+		printGreen(".");
+	}
+	system("start https://github.com/iamwatchdogs/Windows_DNS_Fixer/releases");
 	closeInteractiveSession(TRUE);
 }
