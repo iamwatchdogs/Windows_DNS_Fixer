@@ -28,11 +28,13 @@ int main(int argc, char * argv[])
 	else
 	{
 		char c;
-		puts("---\tInteractive Session\t---\n");
+		puts("\n---\tInteractive Session\t---\n");
 		BOOL hasAdminAccess = isExecutedAsAdmin();
 		if( hasAdminAccess )
 		{
-			dns_fixing_commands();
+			printf("Has admin access");
+			getchar();
+			// dns_fixing_commands();
 		}
 		else
 		{
@@ -77,10 +79,10 @@ BOOL isExecutedAsAdmin()
 	puts("This program requires Administrative Access !!!...");
 	printf("Checking for Administrative privileges");
 	while(count--){
-		printf(".");
 		Sleep(750);
+		printf(".");
 	}
-	print("\n");
+	puts("\n");
 	return isElevated();
 }
 
