@@ -3,11 +3,11 @@
 #include <string.h>
 #include <windows.h>
 #include "auth.h"
+#include "displayUtil.h"
 
 #define VERSION "v1.0.0"
 
 // Funciton Prototyping
-char * toLowerStr ( char * );
 void insideDnsFix( void );
 void helpDocumentation ( void );
 void executeDnsFixingCommands ( void );
@@ -20,8 +20,6 @@ int main(int argc, char * argv[])
 	// Funciton Prototyping
 	int showMenu(void);
 	void closeInteractiveSession(BOOL quickClose);
-	void printGreen( char * str);
-	void printError( char * str);
 	void visitSourceProject(void);
 
 	// If the user is executing through command line interface.
@@ -149,14 +147,6 @@ void executeDnsFixingCommands ( void )
 	getchar();
 }
 
-// To convert the given string into lower case.
-char * toLowerStr ( char * str )
-{
-	for( int j = 0; j < strlen(str); ++j )
-		str[j] = tolower(str[j]);
-	return str;
-}
-
 // Displays the commands which this program will execute to fix the problem.
 void insideDnsFix( void )
 {
@@ -275,26 +265,6 @@ void executeCommandLineInterface (char * args)
 		exit(2);
 	}
 	
-	return ;
-}
-
-// Displays any text in green color.
-void printGreen( char * str)
-{
-	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-	SetConsoleTextAttribute(hConsole, FOREGROUND_GREEN);
-	printf("%s",str);
-	SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
-	return ;
-}
-
-// Displays any error messages in red color.
-void printError( char * str)
-{
-	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-	SetConsoleTextAttribute(hConsole, FOREGROUND_RED);
-	fprintf(stderr, str);
-	SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
 	return ;
 }
 
