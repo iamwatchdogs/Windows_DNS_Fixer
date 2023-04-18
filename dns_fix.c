@@ -19,6 +19,7 @@ int main(int argc, char * argv[])
 {
 	// Funciton Prototyping
 	int showMenu(void);
+	void closeInteractiveSession(void);
 
 	// If the user is executing through command line interface.
 	if( argc > 1 )
@@ -38,8 +39,7 @@ int main(int argc, char * argv[])
 			{
 				// option - 0: Exit.
 				case 0:
-					// closeInteractiveSession();
-					puts("Closes interactive session");
+					closeInteractiveSession();
 					break;
 
 				// option - 1: Fixes DNS.
@@ -269,4 +269,30 @@ void executeCommandLineInterface (char * args)
 	}
 	
 	return ;
+}
+
+// Displays any text in green color.
+void printGreen( char * str)
+{
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(hConsole, FOREGROUND_GREEN);
+	printf("%s",str);
+	SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+	return ;
+}
+
+// Closes the Interactive Session.
+void closeInteractiveSession(void)
+{
+	int count = 3;
+	printGreen("Closing the DNS FIX");
+	while(count--)
+	{
+		Sleep(750);
+		printGreen(".");
+	}
+	puts("\nPress Enter to continue\n");
+	fflush(stdin);
+	getchar();
+	exit(0);
 }
