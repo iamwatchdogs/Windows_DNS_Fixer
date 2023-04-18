@@ -21,6 +21,7 @@ int main(int argc, char * argv[])
 	int showMenu(void);
 	void closeInteractiveSession(void);
 	void printGreen( char * str);
+	void printError( char * str);
 
 	// If the user is executing through command line interface.
 	if( argc > 1 )
@@ -79,15 +80,17 @@ int main(int argc, char * argv[])
 
 				// Other cases
 				default:
-					fprintf(stderr, "\033[31mError: Please select a proper option...\033[0m\n");
-					fprintf(stderr, "Press Enter to continue\n");
+					printError("\nError: Please select a proper option...\n");
+					puts("Press Enter to continue\n");
+					fflush(stdin);
+					getchar();
 					exit(2);
 			}
 		}
 		else
 		{
-			fprintf(stderr, "\033[31mError: Please try to log in as Administrator for this program to work properly...\033[0m\n");
-			fprintf(stderr, "Press Enter to continue\n");
+			printError("\nError: Please try to log in as Administrator for this program to work properly...\n");
+			puts("Press Enter to continue\n");
 			fflush(stdin);
 			getchar();
 			exit(1);
@@ -103,11 +106,13 @@ int showMenu(void)
 {
 	int option = -1;
 
+	Sleep(750);
+
 	printf("\n---\tWelcome to DNS Fix %s\t---\n\n",VERSION);
-	puts("Please select one of the following options:");
+	puts("Please select one of the following options:\n");
 	puts("1. Fix my DNS.");
 	puts("2. View the commands used.");
-	puts("3. View command line arguments");
+	puts("3. View command line arguments.");
 	puts("4. Visit this Open-Source project.");
 	puts("5. Get the latest version.");
 	puts("6. Help.");
@@ -284,6 +289,16 @@ void printGreen( char * str)
 	return ;
 }
 
+// Displays any error messages in red color.
+void printError( char * str)
+{
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(hConsole, FOREGROUND_RED);
+	fprintf(stderr, str);
+	SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+	return ;
+}
+
 // Closes the Interactive Session.
 void closeInteractiveSession(void)
 {
@@ -291,7 +306,7 @@ void closeInteractiveSession(void)
 	printGreen("\nClosing the DNS FIX");
 	while(count--)
 	{
-		Sleep(750);
+		Sleep(250);
 		printGreen(".");
 	}
 	puts("\nPress Enter to continue\n");
