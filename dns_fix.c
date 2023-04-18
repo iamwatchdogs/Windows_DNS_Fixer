@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <windows.h>
+#include <sddl.h>
 
 // Funciton Prototyping
 char * to_lower_str ( char * );
@@ -14,6 +15,9 @@ void command_line_interface (char * args);
 // Driver Program
 int main(int argc, char * argv[])
 {
+	// Funciton Prototyping
+	BOOL isExecutedAsAdmin();
+
 	// If the user is executing through command line interface.
 	if( argc > 1 )
 	{
@@ -24,15 +28,13 @@ int main(int argc, char * argv[])
 	else
 	{
 		char c;
-		puts("---\tInteractive Session\t---");
-		printf("Have you logged in as Administrator (Y/N) ? ");
-		fflush(stdin);
-		scanf("%c",&c);
-		if( c == 'y' || c == 'Y' )
+		puts("---\tInteractive Session\t---\n");
+		BOOL hasAdminAccess = isExecutedAsAdmin();
+		if( hasAdminAccess )
 		{
 			dns_fixing_commands();
 		}
-		else if  ( c == 'n' || c == 'N' )
+		else
 		{
 			fprintf(stderr, "Error: Please try to log in as Administrator for this program to work properly...\n");
 			fprintf(stderr, "Press Enter to continue\n");
@@ -40,17 +42,48 @@ int main(int argc, char * argv[])
 			getchar();
 			exit(1);
 		}
-		else 
-		{
-			fprintf(stderr, "Error: Invalid Input...\n");
-			fprintf(stderr, "Press Enter to continue\n");
-			fflush(stdin);
-			getchar();
-			exit(-1);
-		}
 	}
 	return 0;
 }
+
+
+
+// Uses Windows API to determine if your program is running with administrative privileges.
+BOOL isElevated()
+{
+    HANDLE hToken = NULL;
+    TOKEN_ELEVATION elevation = {0};
+    DWORD size = 0;
+
+    if (!OpenProcessToken(GetCurrentProcess(), TOKEN_QUERY, &hToken))
+    {
+        return FALSE;
+    }
+
+    if (!GetTokenInformation(hToken, TokenElevation, &elevation, sizeof(elevation), &size))
+    {
+        CloseHandle(hToken);
+        return FALSE;
+    }
+
+    CloseHandle(hToken);
+
+    return elevation.TokenIsElevated;
+}
+
+BOOL isExecutedAsAdmin()
+{
+	int count = 3;
+	puts("This program requires Administrative Access !!!...");
+	printf("Checking for Administrative privileges");
+	while(count--){
+		printf(".");
+		Sleep(750);
+	}
+	print("\n");
+	return isElevated();
+}
+
 
 // The main DNS problem fixing commands.
 void dns_fixing_commands ( void )
