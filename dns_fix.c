@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <windows.h>
-#include <sddl.h>
+#include "auth.h"
 
 #define VERSION "v1.0.0"
 
@@ -18,7 +18,6 @@ void command_line_interface (char * args);
 int main(int argc, char * argv[])
 {
 	// Funciton Prototyping
-	BOOL isExecutedAsAdmin(void);
 	int showMenu(void);
 
 	// If the user is executing through command line interface.
@@ -87,45 +86,6 @@ int main(int argc, char * argv[])
 		}
 	}
 	return 0;
-}
-
-
-
-// Uses Windows API to determine if your program is running with administrative privileges.
-BOOL isElevated(void)
-{
-    HANDLE hToken = NULL;
-    TOKEN_ELEVATION elevation = {0};
-    DWORD size = 0;
-
-    if (!OpenProcessToken(GetCurrentProcess(), TOKEN_QUERY, &hToken))
-    {
-        return FALSE;
-    }
-
-    if (!GetTokenInformation(hToken, TokenElevation, &elevation, sizeof(elevation), &size))
-    {
-        CloseHandle(hToken);
-        return FALSE;
-    }
-
-    CloseHandle(hToken);
-
-    return elevation.TokenIsElevated;
-}
-
-// Checks whether this program is executed as Administrator or not.
-BOOL isExecutedAsAdmin(void)
-{
-	int count = 3;
-	puts("This program requires Administrative Access !!!...");
-	printf("Checking for Administrative privileges");
-	while(count--){
-		Sleep(750);
-		printf(".");
-	}
-	puts("\n");
-	return isElevated();
 }
 
 // Displays an interactive Menu and returns the user selected option.
