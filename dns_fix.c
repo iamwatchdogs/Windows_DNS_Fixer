@@ -4,6 +4,8 @@
 #include <windows.h>
 #include <sddl.h>
 
+#define VERSION "v1.0.0"
+
 // Funciton Prototyping
 char * to_lower_str ( char * );
 void inside_dns_fix( void );
@@ -126,7 +128,7 @@ int showMenu(void)
 {
 	int option = -1;
 
-	printf("\n---\tWelcome to DNS Fix v1.0.0\t---\n\n");
+	printf("\n---\tWelcome to DNS Fix %s\t---\n\n",VERSION);
 	puts("Please select one of the following options:");
 	puts("1. Fix my DNS.");
 	puts("2. View the commands used.");
@@ -196,7 +198,7 @@ void help_documentation ( void )
 	puts("Help:");
 	puts("-------------------------------------------\n");
 	
-	puts("Current Version: v1.0.0");
+	printf("Current Version: %s\n",VERSION);
 	puts("Author: Shamith");
 	puts("Written in: C programming Language");
 	puts("Created on: 26th September 2022");
@@ -279,7 +281,7 @@ void command_line_interface (char * args)
 	// Displays the version of this program.
 	else if( !strcmp(to_lower_str(args),"-version" ) )
 	{
-		puts("\ndns_fix.exe version 1.0.0v");
+		printf("\ndns_fix.exe version %s\n",VERSION);
 	}
 	
 	// Default case of undefined/declined argument
