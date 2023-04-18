@@ -96,7 +96,7 @@ void help_documentation ( void )
 	puts("Help:");
 	puts("-------------------------------------------\n");
 	
-	puts("Current Version: 1.1v");
+	puts("Current Version: v0.1.0");
 	puts("Author: Shamith");
 	puts("Written in: C programming Language");
 	puts("Created on: 26th September 2022");
@@ -187,7 +187,7 @@ void command_line_interface (char * args)
 	// Displays the version of this program.
 	else if( !strcmp(to_lower_str(args),"-version" ) )
 	{
-		puts("\ndns_fix.exe version 1.1v");
+		puts("\ndns_fix.exe version v0.1.0");
 	}
 	
 	// Default case of undefined/declined argument
