@@ -19,9 +19,10 @@ int main(int argc, char * argv[])
 {
 	// Funciton Prototyping
 	int showMenu(void);
-	void closeInteractiveSession(void);
+	void closeInteractiveSession(BOOL quickClose);
 	void printGreen( char * str);
 	void printError( char * str);
+	void visitSourceProject(void);
 
 	// If the user is executing through command line interface.
 	if( argc > 1 )
@@ -42,7 +43,7 @@ int main(int argc, char * argv[])
 			{
 				// option - 0: Exit.
 				case 0:
-					closeInteractiveSession();
+					closeInteractiveSession(FALSE);
 					break;
 
 				// option - 1: Fixes DNS.
@@ -63,9 +64,7 @@ int main(int argc, char * argv[])
 
 				// option - 4: Goto Project URL.
 				case 4:
-					// visitSourceProject();
-					puts("redirects to project url");
-					break;
+					visitSourceProject();
 
 				// option - 5: Goto Latest Version URL.
 				case 5:
@@ -300,7 +299,7 @@ void printError( char * str)
 }
 
 // Closes the Interactive Session.
-void closeInteractiveSession(void)
+void closeInteractiveSession(BOOL quickClose)
 {
 	int count = 3;
 	printGreen("\nClosing the DNS FIX");
@@ -309,8 +308,24 @@ void closeInteractiveSession(void)
 		Sleep(250);
 		printGreen(".");
 	}
-	puts("\nPress Enter to continue\n");
-	fflush(stdin);
-	getchar();
+	if(!quickClose)
+	{
+		puts("\nPress Enter to continue\n");
+		fflush(stdin);
+		getchar();
+	}
 	exit(0);
+}
+
+void visitSourceProject(void) 
+{
+	int count = 3;
+	printGreen("\nRedirecting to Original Open-Source Project");
+	while(count--)
+	{
+		Sleep(175);
+		printGreen(".");
+	}
+	system("start https://github.com/iamwatchdogs/Windows_DNS_Fixer");
+	closeInteractiveSession(TRUE);
 }
