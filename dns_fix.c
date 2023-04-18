@@ -20,6 +20,7 @@ int main(int argc, char * argv[])
 	// Funciton Prototyping
 	int showMenu(void);
 	void closeInteractiveSession(void);
+	void printGreen( char * str);
 
 	// If the user is executing through command line interface.
 	if( argc > 1 )
@@ -34,6 +35,7 @@ int main(int argc, char * argv[])
 		BOOL hasAdminAccess = isExecutedAsAdmin();
 		if( hasAdminAccess )
 		{
+			printGreen("\nHas Administrative access.\n");
 			int option = showMenu();
 			switch (option)
 			{
@@ -285,7 +287,7 @@ void printGreen( char * str)
 void closeInteractiveSession(void)
 {
 	int count = 3;
-	printGreen("Closing the DNS FIX");
+	printGreen("\nClosing the DNS FIX");
 	while(count--)
 	{
 		Sleep(750);

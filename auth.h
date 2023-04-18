@@ -40,6 +40,5 @@ BOOL isExecutedAsAdmin(void)
 		Sleep(750);
 		printf(".");
 	}
-	puts("\n");
 	return isElevated();
 }
