@@ -1,11 +1,9 @@
-#ifndef HEADER_FILES
-#define HEADER_FILES
+#ifndef AUTH_H
+#define AUTH_H
 
 #include <stdio.h>
 #include <windows.h>
 #include <sddl.h>
-
-#endif
 
 // Uses Windows API to determine if your program is running with administrative privileges.
 BOOL isElevated(void)
@@ -43,3 +41,5 @@ BOOL isExecutedAsAdmin(void)
 	}
 	return isElevated();
 }
+
+#endif

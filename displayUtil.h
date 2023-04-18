@@ -1,11 +1,10 @@
-#ifndef HEADER_FILES_DISPLAYUTIL
-#define HEADER_FILES_DISPLAYUTIL
+// Checking for repeation
+#ifndef DISPLAY_UTIL_H
+#define DISPLAY_UTIL_H
 
 #include <stdio.h>
 #include <string.h>
 #include <windows.h>
-
-#endif
 
 // Displays any text in green color.
 void printGreen( char * str)
@@ -34,3 +33,5 @@ char * toLowerStr ( char * str )
 		str[j] = tolower(str[j]);
 	return str;
 }
+
+#endif

@@ -1,16 +1,18 @@
-#ifndef HEADER_FILES_EXECUTIONENGINE
-#define HEADER_FILES_EXECUTIONENGINE
+#ifndef EXECUTION_ENGINE_H
+#define EXECUTION_ENGINE_H
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <windows.h>
 #include <string.h>
+#include "auth.h"
 #include "displayUtil.h"
 #include "displayContent.h"
 
-#define VERSION "v1.0.0"
-
+#ifndef VERSION
+#define VERSION NULL
 #endif
+
 
 // The main DNS problem fixing commands.
 void executeDnsFixingCommands ( void )
@@ -174,3 +176,5 @@ void executeCommandLineInterface (char * args)
 	
 	return ;
 }
+
+#endif

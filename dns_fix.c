@@ -1,7 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <windows.h>
 
 // Version of the program
 #define VERSION "v1.0.0"
@@ -12,24 +10,15 @@
 #include "displayContent.h"
 #include "executionEngine.h"
 
-// Funciton Prototyping
-void executeDnsFixingCommands ( void );
-void executeCommandLineInterface (char * args);
-
 // Driver Program
 int main(int argc, char * argv[])
 {
-	// Funciton Prototyping
-	int showMenu(void);
-	void redirectSourceProject(void);
-	void redirectLatestVersion(void);
-	void optionExecutor (int option);
 
 	// If the user is executing through command line interface and has passed more than 1 argument value.
 	if( argc > 2 )
 	{
-		printError("\n\nError: Too many argument passed, Please try again...\n");
-		puts("Press Enter to continue\n");
+		printError("\nError: Too many argument passed, Please try again...\n");
+		puts("Press Enter to continue");
 		fflush(stdin);
 		getchar();
 		exit(1);

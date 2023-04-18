@@ -1,15 +1,11 @@
-#ifndef HEADER_FILES_DISPLAYCONTENT
-#define HEADER_FILES_DISPLAYCONTENT
+#ifndef DISPLAY_CONTENT_H
+#define DISPLAY_CONTENT_H
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <windows.h>
 #include <string.h>
 #include "displayUtil.h"
-
-#define VERSION NULL
-
-#endif
 
 // Closes the Interactive Session.
 void closeInteractiveSession(BOOL quickClose)
@@ -126,3 +122,5 @@ void helpDocumentation ( void )
 	
 	return ;
 }
+
+#endif
