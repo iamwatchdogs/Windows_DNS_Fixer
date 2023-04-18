@@ -31,7 +31,7 @@ BOOL isElevated(void)
 }
 
 // Checks whether this program is executed as Administrator or not.
-BOOL isisExecutedAsAdmin(void)
+BOOL isExecutedAsAdmin(void)
 {
 	int count = 3;
 	puts("This program requires Administrative Access !!!...");

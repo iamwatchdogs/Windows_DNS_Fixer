@@ -38,11 +38,14 @@ int main(int argc, char * argv[])
 			{
 				// option - 0: Exit.
 				case 0:
-					closeInteractiveSession();
+					// closeInteractiveSession();
+					puts("Closes interactive session");
+					break;
 
 				// option - 1: Fixes DNS.
 				case 1:
-					executeDnsFixingCommands();
+					// executeDnsFixingCommands();
+					puts("executes the DNS commands");
 					break;
 
 				// option - 2: Displays the commands.
@@ -57,17 +60,19 @@ int main(int argc, char * argv[])
 
 				// option - 4: Goto Project URL.
 				case 4:
-					visitSourceProject();
+					// visitSourceProject();
+					puts("redirects to project url");
 					break;
 
 				// option - 5: Goto Latest Version URL.
 				case 5:
-					visitLatestVersion();
+					// visitLatestVersion();
+					puts("redirects to project's latest release url");
 					break;
 
 				// option - 6: Displays the help documentation.
 				case 6:
-					help_documentation();
+					helpDocumentation();
 					break;
 
 				// Other cases
@@ -85,6 +90,8 @@ int main(int argc, char * argv[])
 			getchar();
 			exit(1);
 		}
+		fflush(stdin);
+		getchar();
 	}
 	return 0;
 }
@@ -236,7 +243,7 @@ void executeCommandLineInterface (char * args)
 	// Displays the documentation of this program.
 	else if( !strcmp(toLowerStr(args),"-help"))
 	{
-		help_documentation();
+		helpDocumentation();
 	}
 	
 	// To display available options (or) arguments in this program.
