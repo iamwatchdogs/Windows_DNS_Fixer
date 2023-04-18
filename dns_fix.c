@@ -20,8 +20,8 @@ int main(int argc, char * argv[])
 {
 	// Funciton Prototyping
 	int showMenu(void);
-	void visitSourceProject(void);
-	void visitLatestVersion(void);
+	void redirectSourceProject(void);
+	void redirectLatestVersion(void);
 
 	// If the user is executing through command line interface.
 	if( argc > 1 )
@@ -63,11 +63,11 @@ int main(int argc, char * argv[])
 
 				// option - 4: Goto Project URL.
 				case 4:
-					visitSourceProject();
+					redirectSourceProject();
 
 				// option - 5: Goto Latest Version URL.
 				case 5:
-					visitLatestVersion();
+					redirectLatestVersion();
 					puts("redirects to project's latest release url");
 					break;
 
@@ -176,7 +176,7 @@ void executeCommandLineInterface (char * args)
 	return ;
 }
 
-void visitSourceProject(void) 
+void redirectSourceProject(void) 
 {
 	int count = 3;
 	printGreen("\nRedirecting to Original Open-Source Project");
@@ -189,7 +189,7 @@ void visitSourceProject(void)
 	closeInteractiveSession(TRUE);
 }
 
-void visitLatestVersion(void)
+void redirectLatestVersion(void)
 {
 	int count = 3;
 	printGreen("\nRedirecting to Original Open-Source Project");
