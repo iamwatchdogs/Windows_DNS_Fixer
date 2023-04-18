@@ -74,6 +74,7 @@ int main(int argc, char * argv[])
 				default:
 					fprintf(stderr, "\033[31mError: Please select a proper option...\033[0m\n");
 					fprintf(stderr, "Press Enter to continue\n");
+					exit(2);
 			}
 		}
 		else

@@ -1,12 +1,9 @@
-#ifndef HEADER_FILEs
-#define HEADER_FILEs
+#ifndef HEADER_FILES
+#define HEADER_FILES
 
 #include <stdio.h>
 #include <windows.h>
 #include <sddl.h>
-
-BOOL isElevated(void);
-BOOL isElevated(void);
 
 #endif
 
@@ -34,7 +31,7 @@ BOOL isElevated(void)
 }
 
 // Checks whether this program is executed as Administrator or not.
-BOOL isElevated(void)
+BOOL isisExecutedAsAdmin(void)
 {
 	int count = 3;
 	puts("This program requires Administrative Access !!!...");
