@@ -25,8 +25,18 @@ int main(int argc, char * argv[])
 	void redirectLatestVersion(void);
 	void optionExecutor (int option);
 
-	// If the user is executing through command line interface.
-	if( argc > 1 )
+	// If the user is executing through command line interface and has passed more than 1 argument value.
+	if( argc > 2 )
+	{
+		printError("\n\nError: Too many argument passed, Please try again...\n");
+		puts("Press Enter to continue\n");
+		fflush(stdin);
+		getchar();
+		exit(1);
+	}
+
+	// If the user is executing through command line interface and sent single argument.
+	else if ( argc == 2 )
 	{
 		executeCommandLineInterface( argv[1] );
 	}
