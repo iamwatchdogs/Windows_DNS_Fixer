@@ -1,5 +1,5 @@
-#ifndef HEADER_FILES_DISPLAYUTIL
-#define HEADER_FILES_DISPLAYUTIL
+#ifndef HEADER_FILES_DISPLAYCONTENT
+#define HEADER_FILES_DISPLAYCONTENT
 
 #include <stdio.h>
 #include <stdlib.h>
