@@ -22,6 +22,7 @@ int main(int argc, char * argv[])
 	int showMenu(void);
 	void redirectSourceProject(void);
 	void redirectLatestVersion(void);
+	void optionExecutor (int option);
 
 	// If the user is executing through command line interface.
 	if( argc > 1 )
@@ -38,51 +39,7 @@ int main(int argc, char * argv[])
 		{
 			printGreen("\nHas Administrative access.\n");
 			int option = showMenu();
-			switch (option)
-			{
-				// option - 0: Exit.
-				case 0:
-					closeInteractiveSession(FALSE);
-					break;
-
-				// option - 1: Fixes DNS.
-				case 1:
-					// executeDnsFixingCommands();
-					puts("executes the DNS commands");
-					break;
-
-				// option - 2: Displays the commands.
-				case 2:
-					insideDnsFix();
-					break;
-
-				// option - 3: Displays the commandline arguments.
-				case 3:
-					displayCommandLineArgs();
-					break;
-
-				// option - 4: Goto Project URL.
-				case 4:
-					redirectSourceProject();
-
-				// option - 5: Goto Latest Version URL.
-				case 5:
-					redirectLatestVersion();
-					break;
-
-				// option - 6: Displays the help documentation.
-				case 6:
-					helpDocumentation();
-					break;
-
-				// Other cases
-				default:
-					printError("\nError: Please select a proper option...\n");
-					puts("Press Enter to continue\n");
-					fflush(stdin);
-					getchar();
-					exit(2);
-			}
+			optionExecutor(option);
 		}
 		else
 		{
@@ -205,4 +162,54 @@ void redirectLatestVersion(void)
 	Sleep(585);
 	system("start https://github.com/iamwatchdogs/Windows_DNS_Fixer/releases");
 	closeInteractiveSession(TRUE);
+}
+
+void optionExecutor (int option)
+{
+	switch (option)
+	{
+		// option - 0: Exit.
+		case 0:
+			closeInteractiveSession(FALSE);
+			break;
+
+		// option - 1: Fixes DNS.
+		case 1:
+			// executeDnsFixingCommands();
+			puts("executes the DNS commands");
+			break;
+
+				// option - 2: Displays the commands.
+		case 2:
+			insideDnsFix();
+			break;
+
+				// option - 3: Displays the commandline arguments.
+		case 3:
+			displayCommandLineArgs();
+			break;
+
+				// option - 4: Goto Project URL.
+		case 4:
+			redirectSourceProject();
+
+				// option - 5: Goto Latest Version URL.
+		case 5:
+			redirectLatestVersion();
+			break;
+
+		// option - 6: Displays the help documentation.
+		case 6:
+			helpDocumentation();
+			break;
+
+		// Other cases
+		default:
+			printError("\nError: Please select a proper option...\n");
+			puts("Press Enter to continue\n");
+			fflush(stdin);
+			getchar();
+			exit(2);
+	}
+	return ;
 }
