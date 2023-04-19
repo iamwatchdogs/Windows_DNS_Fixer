@@ -14,6 +14,7 @@
 int main(int argc, char * argv[])
 {
 
+ 	void displayStartUpMessage(void);
 	// If the user is executing through command line interface and has passed more than 1 argument value.
 	if( argc > 2 )
 	{
@@ -33,24 +34,12 @@ int main(int argc, char * argv[])
 	// If the user is running the .exe file directly.
 	else
 	{
-		puts("\n---\tRunning an Interactive Session\t---\t\n");
-		BOOL hasAdminAccess = isExecutedAsAdmin();
-		if( hasAdminAccess )
-		{
-			printGreen("\nHas Administrative access.\n");
-			int option = showMenu();
-			optionExecutor(option);
-		}
-		else
-		{
-			printError("\n\nError: Please try to log in as Administrator for this program to work properly...\n");
-			puts("Press Enter to continue\n");
-			fflush(stdin);
-			getchar();
-			exit(1);
-		}
+		displayStartUpMessage();
+		int option = showMenu();
+		optionExecutor(option);
 		fflush(stdin);
 		getchar();
 	}
+	
 	return 0;
 }

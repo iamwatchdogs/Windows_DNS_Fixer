@@ -39,6 +39,7 @@ void executeDnsFixingCommands ( void )
 	getchar();
 }
 
+// Redirects to the original Open-Source project.
 void redirectSourceProject(void) 
 {
 	int count = 3;
@@ -48,9 +49,11 @@ void redirectSourceProject(void)
 		Sleep(175);
 		printGreen(".");
 	}
+	printf("\n");
 	system("start https://github.com/iamwatchdogs/Windows_DNS_Fixer");
 }
 
+// Redirects to the latest release of this program.
 void redirectLatestVersion(void)
 {
 	int count = 3;
@@ -64,11 +67,40 @@ void redirectLatestVersion(void)
 		Sleep(175);
 		printGreen(".");
 	}
-	puts("\n");
+	printf("\n");
 	Sleep(585);
 	system("start https://github.com/iamwatchdogs/Windows_DNS_Fixer/releases");
 }
 
+// Checks for administrative privileges and executes the DNS Fixing commands
+void checkAndExecute(void)
+{	
+	BOOL hasAdminAccess = isExecutedAsAdmin();
+	if( hasAdminAccess )
+	{
+		int count = 3;
+		printGreen("\nHas Administrative access");
+		while(count--)
+		{
+			Sleep(175);
+			printGreen(".");
+		}
+		printf("\n");
+		// executeDnsFixingCommands();
+		puts("executes the DNS commands");
+	}
+	else
+	{
+		printError("\n\nError: Please try to log in as Administrator for this program to work properly...\n");
+		puts("Press Enter to continue\n");
+		fflush(stdin);
+		getchar();
+		exit(1);
+	}
+	return ;
+}
+
+// Evaluates the user given option and executes the following command.
 void optionExecutor (int option)
 {
 	BOOL quickExit = FALSE;
@@ -80,27 +112,26 @@ void optionExecutor (int option)
 
 		// option - 1: Fixes DNS.
 		case 1:
-			// executeDnsFixingCommands();
-			puts("executes the DNS commands");
+		    checkAndExecute();
 			break;
 
-				// option - 2: Displays the commands.
+		// option - 2: Displays the commands.
 		case 2:
 			insideDnsFix();
 			break;
 
-				// option - 3: Displays the commandline arguments.
+		// option - 3: Displays the commandline arguments.
 		case 3:
 			displayCommandLineArgs();
 			break;
 
-				// option - 4: Goto Project URL.
+		// option - 4: Goto Project URL.
 		case 4:
 			redirectSourceProject();
 			quickExit = TRUE;
 			break;
 
-				// option - 5: Goto Latest Version URL.
+		// option - 5: Goto Latest Version URL.
 		case 5:
 			redirectLatestVersion();
 			quickExit = TRUE;
@@ -136,7 +167,7 @@ void executeCommandLineInterface (char * args)
 	}
 
 	// Displays the commands used to resolve the DNS problem.
-	else if( !strcmp(toLowerStr(args),"-c" ) || !strcmp(toLowerStr(args),"--commands" ) )
+	else if( !strcmp(toLowerStr(args),"-c" ) || !strcmp(toLowerStr(args),"--commands") )
 	{
 		puts("\n---\tRunning an Command Line Session\t---\t\n");
 		insideDnsFix();
@@ -160,21 +191,7 @@ void executeCommandLineInterface (char * args)
 	else if( !strcmp(toLowerStr(args),"-r") || !strcmp(toLowerStr(args),"--run") )
 	{
 		puts("\n---\tRunning an Command Line Session\t---\t\n");
-		BOOL hasAdminAccess = isExecutedAsAdmin();
-		if(hasAdminAccess)
-		{
-			printGreen("\nHas Administrative access.\n");
-			// executeDnsFixingCommands();
-			puts("executes the DNS commands");
-		}
-		else
-		{
-			printError("\n\nError: Please try to log in as Administrator for this program to work properly...\n");
-			puts("Press Enter to continue\n");
-			fflush(stdin);
-			getchar();
-			exit(1);
-		}
+		checkAndExecute();
 	}
 
 	// Redirects to Releases Open-Source project
@@ -185,7 +202,7 @@ void executeCommandLineInterface (char * args)
 	}
 	
 	// Displays the version of this program.
-	else if( !strcmp(toLowerStr(args),"-v" ) || !strcmp(toLowerStr(args),"--version" ) )
+	else if( !strcmp(toLowerStr(args),"-v" ) || !strcmp(toLowerStr(args),"--version") )
 	{
 		printf("\nCurrent Version of dns_fix: %s\n",VERSION);
 		quickExit = TRUE;

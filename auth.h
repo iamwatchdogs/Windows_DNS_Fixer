@@ -32,8 +32,8 @@ BOOL isElevated(void)
 BOOL isExecutedAsAdmin(void)
 {
 	int count = 3;
-
-	puts("This program requires Administrative Access !!!...");
+    Sleep(250);
+	puts("\nThis program requires Administrative Access !!!...");
 	printf("Checking for Administrative privileges");
 	while(count--){
 		Sleep(250);

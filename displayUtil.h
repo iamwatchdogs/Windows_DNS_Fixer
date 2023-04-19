@@ -34,4 +34,43 @@ char * toLowerStr ( char * str )
 	return str;
 }
 
+// Prints given character at given number of time with given time gap.
+void customPrintChar (char c, int times, int timeGap)
+{
+	while(times--)
+	{
+		Sleep(timeGap);
+		printf("%c", c);
+	}
+	return ;
+}
+
+// Resets the printed characters, so that they could be replaced.
+void resetPrintedChar (int spaces)
+{
+	customPrintChar('\b', spaces, 0);
+	customPrintChar(' ', spaces, 0);
+	customPrintChar('\b', spaces, 0);
+	return;
+}
+
+// Displays the start up message for Interactive Session.
+void displayStartUpMessage(void)
+{
+    int iter = 2;
+	int count = 3;
+	int dotTimeGap = 200, resetTimeGap = 100;
+	printf("\nRunning an Interactive Session");
+	while (iter--)
+	{
+		customPrintChar('.', count, dotTimeGap);
+		Sleep(resetTimeGap);
+	    resetPrintedChar(count);
+	}
+	customPrintChar('.', count, dotTimeGap/2);
+	Sleep(resetTimeGap/2);
+	puts("\n");
+	return ;
+}
+
 #endif

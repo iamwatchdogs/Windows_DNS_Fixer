@@ -27,6 +27,10 @@ void closeInteractiveSession(BOOL quickClose)
 		fflush(stdin);
 		getchar();
 	}
+	else
+	{
+		printf("\n");
+	}
 	printf("\n");
 	exit(0);
 }
@@ -36,9 +40,10 @@ int showMenu(void)
 {
 	int option = -1;
 
-	Sleep(750);
+	Sleep(500);
+	system("cls");
 
-	printf("\n---\tWelcome to DNS Fix %s\t---\n\n",VERSION);
+	printf("---\tWelcome to DNS Fix %s\t---\n\n",VERSION);
 	puts("Please select one of the following options:\n");
 	puts("1. Fix my DNS.");
 	puts("2. View the commands used.");
