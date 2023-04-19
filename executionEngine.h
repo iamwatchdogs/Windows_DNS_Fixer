@@ -17,26 +17,32 @@
 // The main DNS problem fixing commands.
 void executeDnsFixingCommands ( void )
 {
-	system("cls");
-	system("ipconfig /flushdns");
+	int countDown = 5, timeGap = 1000;
+	// puts("\n---\tExecuting the DNS Fixing Commands\t---\n");
+	// Sleep(300);
+	// system("ipconfig /flushdns");
+	// Sleep(300);
+	// system("ipconfig /registerdns");
+	// Sleep(800);
+	// system("ipconfig /release");
+	// Sleep(600);
+	// system("ipconfig /renew");
+	// Sleep(1200);
+	// system("NETSH winsock reset catalog");
+	// Sleep(1700);
+	// system("NETSH int ipv4 reset reset.log");
+	// Sleep(300);
+	// system("NETSH int ipv6 reset reset.log");
 	Sleep(300);
-	system("ipconfig /registerdns");
-	Sleep(800);
-	system("ipconfig /release");
-	Sleep(600);
-	system("ipconfig /renew");
-	Sleep(1200);
-	system("NETSH winsock reset catalog");
-	Sleep(1700);
-	system("NETSH int ipv4 reset reset.log");
-	Sleep(300);
-	system("NETSH int ipv6 reset reset.log");
-	Sleep(300);
-	puts("-------------------------------------------");
-	puts("\nRestart you system now...\n");
-	puts("-------------------------------------------");
-	fflush(stdin);
-	getchar();
+	printf("\n\n");
+	while (countDown--)
+	{
+		printf("Restarting your system now in %d", countDown+1);
+		Sleep(timeGap);
+		system("cls");
+	}
+	// system("shutdown /r /t 1");
+	return ;
 }
 
 // Redirects to the original Open-Source project.

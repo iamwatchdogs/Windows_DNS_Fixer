@@ -46,13 +46,13 @@ void customPrintChar (char c, int times, int timeGap)
 }
 
 // Resets the printed characters, so that they could be replaced.
-void resetPrintedChar (int spaces)
-{
-	customPrintChar('\b', spaces, 0);
-	customPrintChar(' ', spaces, 0);
-	customPrintChar('\b', spaces, 0);
-	return;
-}
+	void resetPrintedChar (int spaces)
+	{
+		customPrintChar('\b', spaces, 0);
+		customPrintChar(' ', spaces, 0);
+		customPrintChar('\b', spaces, 0);
+		return;
+	}
 
 // Displays the start up message for Interactive Session.
 void displayStartUpMessage(void)
