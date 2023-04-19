@@ -7,6 +7,10 @@
 #include <string.h>
 #include "displayUtil.h"
 
+#ifndef VERSION
+#define VERSION NULL
+#endif
+
 // Closes the Interactive Session.
 void closeInteractiveSession(BOOL quickClose)
 {
@@ -19,10 +23,11 @@ void closeInteractiveSession(BOOL quickClose)
 	}
 	if(!quickClose)
 	{
-		puts("\nPress Enter to continue\n");
+		puts("\nPress Enter to continue");
 		fflush(stdin);
 		getchar();
 	}
+	puts("\n");
 	exit(0);
 }
 
@@ -76,6 +81,7 @@ void displayCommandLineArgs ( void )
 	puts("-c (or) --commands : To view to commands being executed to fix the DNS problem.\n");
 	puts("-h (or) --help     : To read the following content of this program.\n");
 	puts("-p (or) --project  : Redirects to the Original Open-Source Project.\n");
+	puts("-r (or) --run      : Runs the commands to fix the DNS issue.\n");
 	puts("-u (or) --update   : Redirects to the releases of this Project.\n");
 	puts("-v (or) --version  : To know the current version.\n");
 	

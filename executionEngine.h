@@ -49,7 +49,6 @@ void redirectSourceProject(void)
 		printGreen(".");
 	}
 	system("start https://github.com/iamwatchdogs/Windows_DNS_Fixer");
-	closeInteractiveSession(TRUE);
 }
 
 void redirectLatestVersion(void)
@@ -68,7 +67,6 @@ void redirectLatestVersion(void)
 	puts("\n");
 	Sleep(585);
 	system("start https://github.com/iamwatchdogs/Windows_DNS_Fixer/releases");
-	closeInteractiveSession(TRUE);
 }
 
 void optionExecutor (int option)
@@ -128,53 +126,82 @@ void optionExecutor (int option)
 // When user uses command line to execute the program ( args are arrange in alphabetical order ).
 void executeCommandLineInterface (char * args)
 {
-	// Displays the commands used to resolve the DNS problem.
-	if( !strcmp(toLowerStr(args),"-i" ) )
+	BOOL quickExit = FALSE;
+
+	// To display available options (or) arguments in this program.
+	if( !strcmp(toLowerStr(args),"-a") || !strcmp(toLowerStr(args),"--args") )
 	{
+		puts("\n---\tRunning an Command Line Session\t---\t\n");
+		displayCommandLineArgs();
+	}
+
+	// Displays the commands used to resolve the DNS problem.
+	else if( !strcmp(toLowerStr(args),"-c" ) || !strcmp(toLowerStr(args),"--commands" ) )
+	{
+		puts("\n---\tRunning an Command Line Session\t---\t\n");
 		insideDnsFix();
 	}
 	
-	// To execute the program directly without asking to verify whether it's gonna execute in -
-	// - Administrator mode or not.
-	else if( !strcmp(toLowerStr(args),"-y") )
-	{
-		puts("\n-------------------------------------------");
-		puts("Note:");
-		puts("-------------------------------------------");
-		puts("The program is being execute assuming that it is in Administrator mode...");
-		Sleep(1500);
-		executeDnsFixingCommands();
-	}
-	
 	// Displays the documentation of this program.
-	else if( !strcmp(toLowerStr(args),"-help"))
+	else if( !strcmp(toLowerStr(args),"-h") || !strcmp(toLowerStr(args),"--help") )
 	{
+		puts("\n---\tRunning an Command Line Session\t---\t\n");
 		helpDocumentation();
 	}
-	
-	// To display available options (or) arguments in this program.
-	else if( !strcmp(toLowerStr(args),"-options"))
+
+	// Redirects to Original Open-Source project
+	else if( !strcmp(toLowerStr(args),"-p") || !strcmp(toLowerStr(args),"--project") )
 	{
-		displayCommandLineArgs();
+		redirectSourceProject();
+		quickExit = TRUE;
+	}
+
+	// Runs the DNS resolving commands after checking for administrative privileges.
+	else if( !strcmp(toLowerStr(args),"-r") || !strcmp(toLowerStr(args),"--run") )
+	{
+		puts("\n---\tRunning an Command Line Session\t---\t\n");
+		BOOL hasAdminAccess = isExecutedAsAdmin();
+		if(hasAdminAccess)
+		{
+			printGreen("\nHas Administrative access.\n");
+			// executeDnsFixingCommands();
+			puts("executes the DNS commands");
+		}
+		else
+		{
+			printError("\n\nError: Please try to log in as Administrator for this program to work properly...\n");
+			puts("Press Enter to continue\n");
+			fflush(stdin);
+			getchar();
+			exit(1);
+		}
+	}
+
+	// Redirects to Releases Open-Source project
+	else if( !strcmp(toLowerStr(args),"-u") || !strcmp(toLowerStr(args),"--update") )
+	{
+		redirectLatestVersion();
+		quickExit = TRUE;
 	}
 	
 	// Displays the version of this program.
-	else if( !strcmp(toLowerStr(args),"-version" ) )
+	else if( !strcmp(toLowerStr(args),"-v" ) || !strcmp(toLowerStr(args),"--version" ) )
 	{
-		printf("\ndns_fix.exe version %s\n",VERSION);
+		printf("\nCurrent Version of dns_fix: %s\n",VERSION);
+		quickExit = TRUE;
 	}
 	
 	// Default case of undefined/declined argument
 	else
 	{
-		printf("Invalid Argument : \"%s\"\n",args);
-		puts("Try again with an different argument...");
+		printError("\n\nError: Invalid Argument.\nTry again with an different argument...\n");
+		puts("Press Enter to continue\n");
 		fflush(stdin);
 		getchar();
 		exit(2);
 	}
 	
-	return ;
+	closeInteractiveSession(quickExit);
 }
 
 #endif
