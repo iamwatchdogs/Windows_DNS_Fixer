@@ -37,9 +37,9 @@ void executeDnsFixingCommands ( void )
 	printf("\n\n");
 	while (countDown--)
 	{
-		printf("Restarting your system now in %d", countDown+1);
-		Sleep(timeGap);
 		system("cls");
+		printf("Restarting your system now in %d.", countDown+1);
+		Sleep(timeGap);
 	}
 	// system("shutdown /r /t 1");
 	return ;
@@ -92,8 +92,7 @@ void checkAndExecute(void)
 			printGreen(".");
 		}
 		printf("\n");
-		// executeDnsFixingCommands();
-		puts("executes the DNS commands");
+		executeDnsFixingCommands();
 	}
 	else
 	{
