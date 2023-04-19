@@ -27,7 +27,7 @@ void closeInteractiveSession(BOOL quickClose)
 		fflush(stdin);
 		getchar();
 	}
-	puts("\n");
+	printf("\n");
 	exit(0);
 }
 
