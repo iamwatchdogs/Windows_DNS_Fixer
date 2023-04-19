@@ -14,7 +14,9 @@
 int main(int argc, char * argv[])
 {
 
+	// Function Prototypes
  	void displayStartUpMessage(void);
+
 	// If the user is executing through command line interface and has passed more than 1 argument value.
 	if( argc > 2 )
 	{
@@ -40,6 +42,6 @@ int main(int argc, char * argv[])
 		fflush(stdin);
 		getchar();
 	}
-	
+
 	return 0;
 }
