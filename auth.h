@@ -44,8 +44,21 @@ BOOL isExecutedAsAdmin(void)
 	return isElevated();
 }
 
+// Prints the respective error message
+void errorPromptForAdminAccess(DWORD error)
+{
+    TCHAR errorMessage[256];
+    FormatMessage(FORMAT_MESSAGE_FROM_SYSTEM, NULL, error, 0, errorMessage, sizeof(errorMessage), NULL);
+    puts("\n");
+    printError((char *)errorMessage);
+    printf("\n");
+    fflush(stdin);
+    getchar();
+    return ;
+}
+
 // Prompts the user to re-run the program as Administrator.
-void promptForAdmin() 
+void promptForAdmin(void) 
 {
     TCHAR szPath[MAX_PATH];
     if (GetModuleFileName(NULL, szPath, MAX_PATH)) 
@@ -69,17 +82,15 @@ void promptForAdmin()
             } 
             else 
             {
-                // Prints the respective error message
-                TCHAR errorMessage[256];
-                FormatMessage(FORMAT_MESSAGE_FROM_SYSTEM, NULL, error, 0, errorMessage, sizeof(errorMessage), NULL);
-                puts("\n");
-                printError((char *)errorMessage);
-                printf("\n");
-                fflush(stdin);
-                getchar();
+                // Prints the other possible error message
+                errorPromptForAdminAccess(error);
             }
         }
     }
+    
+    // Prints error message for the possible error while retriving the executable file path.
+    errorPromptForAdminAccess(GetLastError());
+
 }
 
 
