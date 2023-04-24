@@ -203,6 +203,12 @@ void executeCommandLineInterface (char * args)
 		quickExit = TRUE;
 	}
 
+	// Displays Patch Notes
+	else if( !strcmp(toLowerStr(args),"-pn") || !strcmp(toLowerStr(args),"--patchnotes") )
+	{
+		displayPatchNotes();
+	}
+
 	// Runs the DNS resolving commands after checking for administrative privileges.
 	else if( !strcmp(toLowerStr(args),"-r") || !strcmp(toLowerStr(args),"--run") )
 	{
