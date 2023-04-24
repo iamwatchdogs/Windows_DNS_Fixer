@@ -73,4 +73,18 @@ void displayStartUpMessage(void)
 	return ;
 }
 
+// Prints the respective error message
+void errorPromptForAdminAccess(DWORD error)
+{
+    TCHAR errorMessage[256];
+    FormatMessage(FORMAT_MESSAGE_FROM_SYSTEM, NULL, error, 0, errorMessage, sizeof(errorMessage), NULL);
+    puts("\n");
+	printError((char *)errorMessage);
+    printError((char *)errorMessage);
+    printf("\n");
+    fflush(stdin);
+    getchar();
+    return ;
+}
+
 #endif

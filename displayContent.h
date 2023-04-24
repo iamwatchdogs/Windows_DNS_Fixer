@@ -83,13 +83,14 @@ void displayCommandLineArgs ( void )
 	puts("-------------------------------------------------------------------------------------------\n");
 	
 	puts("For the current version, the following options (or) Arguments are supported:\n");
-	puts("-a (or) --args     : To display the all available argumentsof this version of the program.\n");
-	puts("-c (or) --commands : To view to commands being executed to fix the DNS problem.\n");
-	puts("-h (or) --help     : To read the following content of this program.\n");
-	puts("-p (or) --project  : Redirects to the Original Open-Source Project.\n");
-	puts("-r (or) --run      : Runs the commands to fix the DNS issue.\n");
-	puts("-u (or) --update   : Redirects to the releases of this Project.\n");
-	puts("-v (or) --version  : To know the current version.\n");
+	puts("-a  (or) --args      : To display the all available argumentsof this version of the program.\n");
+	puts("-c  (or) --commands  : To view to commands being executed to fix the DNS problem.\n");
+	puts("-dr (or) --directrun : Directly runs the DNS fixing commands without Admin check. (Not Recommended for end-users)");
+	puts("-h  (or) --help      : To read the following content of this program.\n");
+	puts("-p  (or) --project   : Redirects to the Original Open-Source Project.\n");
+	puts("-r  (or) --run       : Runs the commands to fix the DNS issue.\n");
+	puts("-u  (or) --update    : Redirects to the releases of this Project.\n");
+	puts("-v  (or) --version   : To know the current version.\n");
 	
 	puts("\n-------------------------------------------------------------------------------------------");
 	return ;

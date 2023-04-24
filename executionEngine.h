@@ -34,8 +34,9 @@ void executeDnsFixingCommands ( void )
 	// system("NETSH int ipv4 reset reset.log");
 	// Sleep(300);
 	// system("NETSH int ipv6 reset reset.log");
+	puts("\n");
 	Sleep(300);
-	printf("\n\n");
+	puts("\n");
 	while (countDown--)
 	{
 		system("cls");
@@ -179,6 +180,13 @@ void executeCommandLineInterface (char * args)
 	{
 		puts("\n---\tRunning an Command Line Session\t---\t\n");
 		insideDnsFix();
+	}
+
+	// Directly executes the DNS Fixing commands without checking for administrative privileges. (Not Recommended for end-user)
+	else if( !strcmp(toLowerStr(args),"-dr" ) || !strcmp(toLowerStr(args),"--directrun") )
+	{
+		executeDnsFixingCommands();
+		quickExit = TRUE;
 	}
 	
 	// Displays the documentation of this program.

@@ -44,19 +44,6 @@ BOOL isExecutedAsAdmin(void)
 	return isElevated();
 }
 
-// Prints the respective error message
-void errorPromptForAdminAccess(DWORD error)
-{
-    TCHAR errorMessage[256];
-    FormatMessage(FORMAT_MESSAGE_FROM_SYSTEM, NULL, error, 0, errorMessage, sizeof(errorMessage), NULL);
-    puts("\n");
-    printError((char *)errorMessage);
-    printf("\n");
-    fflush(stdin);
-    getchar();
-    return ;
-}
-
 // Prompts the user to re-run the program as Administrator.
 void promptForAdmin(void) 
 {
@@ -66,7 +53,7 @@ void promptForAdmin(void)
         SHELLEXECUTEINFO sei = { sizeof(sei) };
         sei.lpVerb = TEXT("runas");
         sei.lpFile = szPath;
-        sei.lpParameters = "-r";
+        sei.lpParameters = "-dr";
         sei.nShow = SW_NORMAL;
 
         // Execution and Error message handling
@@ -87,11 +74,6 @@ void promptForAdmin(void)
             }
         }
     }
-    
-    // Prints error message for the possible error while retriving the executable file path.
-    errorPromptForAdminAccess(GetLastError());
-
 }
-
 
 #endif
