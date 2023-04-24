@@ -19,21 +19,21 @@
 void executeDnsFixingCommands ( void )
 {
 	int countDown = 5, timeGap = 1000;
-	// puts("\n---\tExecuting the DNS Fixing Commands\t---\n");
-	// Sleep(300);
-	// system("ipconfig /flushdns");
-	// Sleep(300);
-	// system("ipconfig /registerdns");
-	// Sleep(800);
-	// system("ipconfig /release");
-	// Sleep(600);
-	// system("ipconfig /renew");
-	// Sleep(1200);
-	// system("NETSH winsock reset catalog");
-	// Sleep(1700);
-	// system("NETSH int ipv4 reset reset.log");
-	// Sleep(300);
-	// system("NETSH int ipv6 reset reset.log");
+	puts("\n---\tExecuting the DNS Fixing Commands\t---\n");
+	Sleep(300);
+	system("ipconfig /flushdns");
+	Sleep(300);
+	system("ipconfig /registerdns");
+	Sleep(800);
+	system("ipconfig /release");
+	Sleep(600);
+	system("ipconfig /renew");
+	Sleep(1200);
+	system("NETSH winsock reset catalog");
+	Sleep(1700);
+	system("NETSH int ipv4 reset reset.log");
+	Sleep(300);
+	system("NETSH int ipv6 reset reset.log");
 	puts("\n");
 	Sleep(300);
 	puts("\n");
@@ -43,7 +43,7 @@ void executeDnsFixingCommands ( void )
 		printf("Restarting your system now in %d.", countDown+1);
 		Sleep(timeGap);
 	}
-	// system("shutdown /r /t 1");
+	system("shutdown /r /t 1");
 	return ;
 }
 
@@ -146,8 +146,13 @@ void optionExecutor (int option)
 			quickExit = TRUE;
 			break;
 
-		// option - 6: Displays the help documentation.
+		// option - 6: Displays the Patch notes.
 		case 6:
+		    displayPatchNotes();
+			break;
+
+		// option - 7: Displays the help documentation.
+		case 7:
 			helpDocumentation();
 			break;
 

@@ -51,7 +51,8 @@ int showMenu(void)
 	puts("3. View command line arguments.");
 	puts("4. Visit this Open-Source project.");
 	puts("5. Get the latest version.");
-	puts("6. Help.");
+	puts("6. View the patch notes.");
+	puts("7. Help.");
 	puts("0. Exit");
 
 	printf("\nEnter you option: ");

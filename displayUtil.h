@@ -79,7 +79,6 @@ void errorPromptForAdminAccess(DWORD error)
     FormatMessage(FORMAT_MESSAGE_FROM_SYSTEM, NULL, error, 0, errorMessage, sizeof(errorMessage), NULL);
     puts("\n");
 	printError((char *)errorMessage);
-    printError((char *)errorMessage);
     printf("\n");
     fflush(stdin);
     getchar();
