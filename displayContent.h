@@ -126,7 +126,8 @@ void helpDocumentation ( void )
 	puts("Author: Shamith");
 	puts("Written in: C programming Language");
 	puts("Created on: 26th September 2022");
-	puts("Updated on: 18th April 2023");
+	puts("Updated on: 25th April 2023");
+	puts("Completion timeline: 18th - 25th Apr 2023");
 	puts("Required Access: Administrator");
 	puts("Operating System: Windows 10 or above");
 	
