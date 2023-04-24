@@ -1,4 +1,4 @@
-# Windows_DNS_Fixer <img src="https://github.com/iamwatchdogs/Windows_DNS_Fixer/actions/workflows/code_linting.yml/badge.svg" alt="code lint status" align="right" />
+# The First Step 
 
 This is a small program which is used to Fix the "DNS Not Responding" Problem in  windows. They make look something like...
 
@@ -114,55 +114,9 @@ NETSH winsock reset catalog
 NETSH int ipv4 reset reset.log
 NETSH int ipv6 reset reset.log
 ```
-- It may time to type and execute these commands, So I have made this program which execute all of these commands one after another.
+- I have automated the linear execution of these commands using this c program.
 - The program "[dns_fix.c](dns_fix.c "View the code of 'dns_fix.c'")" can be executed either in command line or either running it directly as an *.exe file.
 
 > ****Note**** :
 >
->> You need to run the CMD *( if you wish to run the 'dns_fix' in Command Line Interface )* or the *.exe *(if you wish to run it directly)* as `**Administrator**`.
-
-- In the Command Line Interface, this programs allows some additional arguments. And they are :
-
-##### 1) dns_fix -i
-
-```cmd
-C:\Users\user-name>dns_fix -i
- ```
- 
- - By passing this argument, we can see the command we will get executed by this program to fix the DNS issue.
-
-##### 2) dns_fix -y
-
-```cmd
-C:\Users\user-name>dns_fix -y
- ```
- 
- - By passing this argument, we can execute the program without being asked whether the program is being exectued as Administrator or not.
- - It begins its execution by leaving a NOTE about the above point and executes.
- - If you are using this argument, then we assume that it is already running as Administrator.
-
-##### 3) dns_fix -help
-
-```cmd
-C:\Users\user-name>dns_fix -help
- ```
- 
- - This argument will display the documentation of this program.
- - It bascically contains the details like the version, requirements, description of the program and stuff.
- 
- ##### 4) dns_fix -options
-
-```cmd
-C:\Users\user-name>dns_fix -options
- ```
- - This argument will display all possible argument that can be passes to this program.
- - It also contain the description of those arguments.
-
-#### 5) dns_fix -version
- 
-```cmd
-C:\Users\user-name>dns_fix -version
- ```
- 
- - As the name of the argument suggest, it displays the version of the program.
- - If an update were meant to be addded, then the version of this program will be updated.
+>> You need **Administrator Access** to make use of this utility program.
