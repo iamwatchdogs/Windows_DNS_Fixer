@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <windows.h>
 #include <string.h>
+
 #include "displayUtil.h"
 
 #ifndef VERSION

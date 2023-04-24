@@ -5,6 +5,8 @@
 #include <windows.h>
 #include <sddl.h>
 
+#include "displayUtil.h"
+
 // Uses Windows API to determine if your program is running with administrative privileges.
 BOOL isElevated(void)
 {
@@ -41,5 +43,44 @@ BOOL isExecutedAsAdmin(void)
 	}
 	return isElevated();
 }
+
+// Prompts the user to re-run the program as Administrator.
+void promptForAdmin() 
+{
+    TCHAR szPath[MAX_PATH];
+    if (GetModuleFileName(NULL, szPath, MAX_PATH)) 
+    {
+        SHELLEXECUTEINFO sei = { sizeof(sei) };
+        sei.lpVerb = TEXT("runas");
+        sei.lpFile = szPath;
+        sei.lpParameters = "-r";
+        sei.nShow = SW_NORMAL;
+
+        // Execution and Error message handling
+        if (!ShellExecuteEx(&sei)) 
+        {
+            DWORD error = GetLastError();
+            if (error == ERROR_CANCELLED)
+            {
+                // User canceled UAC prompt
+                printError("Error: End-User canceled UAC prompt.\n");
+                fflush(stdin);
+                getchar();
+            } 
+            else 
+            {
+                // Prints the respective error message
+                TCHAR errorMessage[256];
+                FormatMessage(FORMAT_MESSAGE_FROM_SYSTEM, NULL, error, 0, errorMessage, sizeof(errorMessage), NULL);
+                puts("\n");
+                printError((char *)errorMessage);
+                printf("\n");
+                fflush(stdin);
+                getchar();
+            }
+        }
+    }
+}
+
 
 #endif

@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <windows.h>
 #include <string.h>
+
 #include "auth.h"
 #include "displayUtil.h"
 #include "displayContent.h"
@@ -96,10 +97,12 @@ void checkAndExecute(void)
 	}
 	else
 	{
-		printError("\n\nError: Please try to log in as Administrator for this program to work properly...\n");
-		puts("Press Enter to continue\n");
+		printError("\n\nError: Not logged in as Administrator.\n");
+		Sleep(300);
+		printf("Press Enter to relaunch as Administrator.");
 		fflush(stdin);
 		getchar();
+		promptForAdmin();
 		exit(1);
 	}
 	return ;
