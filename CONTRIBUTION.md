@@ -20,9 +20,9 @@ git clone https://github.com/<Your_GitHub_Name>/Windows_DNS_Fixer/
 > **Note** :
 > 
 > - You can also get this repo into your local machine by just clicking the **Download ZIP** *(or)*
->> ![image](https://user-images.githubusercontent.com/49478000/232591251-4c701588-f91e-4773-a05d-cf2d5de5026e.png)
+>> ![image](https://user-images.githubusercontent.com/49478000/234115033-10fab08f-1095-4497-8060-658a83d6fc54.png)
 > - You can either get this repo by downloading the **Source Code** from the releases.
->> ![image](https://user-images.githubusercontent.com/49478000/232591834-fc1e3d3d-2b28-416d-b6b3-0cae1bdbfab4.png)
+>> ![image](https://user-images.githubusercontent.com/49478000/234115395-57c9ee84-b4e0-4c42-9b03-40496eed9442.png)
 >
 > I **would not** suggest those options,. as are for the **end-users**. 
 > 
