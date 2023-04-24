@@ -1,4 +1,3 @@
-// Checking for repeation
 #ifndef DISPLAY_UTIL_H
 #define DISPLAY_UTIL_H
 
