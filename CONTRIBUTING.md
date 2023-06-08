@@ -1,4 +1,4 @@
-# Contribution:
+# CONTRIBUTING:
 
 Even though this was a small mini-project which automates a couple of commands, We can take it to the next level. If you wish to contribute to this Repository, It's easy to get started...
 
