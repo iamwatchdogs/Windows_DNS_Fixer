@@ -1,0 +1,19 @@
+theme: jekyll-theme-cayman
+title: 'Windows DNS Fixer'
+page_title: 'Simple solution for your DNS problem'
+description: 'Simple cli tool to fix the DNS issue in Windows OS'
+logo: 'https://avatars.githubusercontent.com/u/49478000?v=4'
+defaults:
+  - scope:
+      path: ''
+    values:
+      image: 
+        path: 'https://avatars.githubusercontent.com/u/49478000?v=4'
+        height: 630
+        width: 1200
+exclude:
+  - .gitignore
+  - README.md
+  - CONTRIBUTING.md
+  - CODE_OF_CONDUCT.md
+  - LICENSE
