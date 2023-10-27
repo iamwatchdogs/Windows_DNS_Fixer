@@ -3,19 +3,37 @@
 <br>
 <div align="center">
 
-![C](https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white)
-![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
-![Windows Terminal](https://img.shields.io/badge/Windows%20Terminal-%234D4D4D.svg?style=for-the-badge&logo=windows-terminal&logoColor=white)
-![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
+<img src="https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white" alt="C">
+<img src="https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="Visual Studio Code">
+<img src="https://img.shields.io/badge/Windows%20Terminal-%234D4D4D.svg?style=for-the-badge&logo=windows-terminal&logoColor=white" alt="Windows Terminal">
+<img src="https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white" alt="Windows">
 
 <br>
 
-[![Open Source](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/iamwatchdogs?tab=repositories&q=&type=public&language=&sort=)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/iamwatchdogs/Windows_DNS_Fixer/pulls)
-[![GitHub issues](https://img.shields.io/github/issues/iamwatchdogs/Windows_DNS_Fixer.svg)](https://github.com/iamwatchdogs/Windows_DNS_Fixer/issues)
-[![GitHub pull-requests merged](https://badgen.net/github/merged-prs/iamwatchdogs/Windows_DNS_Fixer)](https://github.com/iamwatchdogs/Windows_DNS_Fixer.js/pulls?q=is%3Amerged)
-[![GitHub release](https://img.shields.io/github/release/iamwatchdogs/Windows_DNS_Fixer)](https://GitHub.com/iamwatchdogs/Windows_DNS_Fixer/releases/)
-[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+<a href="https://github.com/iamwatchdogs?tab=repositories&q=&type=public&language=&sort=">
+<img src="https://badges.frapsoft.com/os/v1/open-source.svg?v=103" alt="Open Source">
+</a>
+
+<a href="https://github.com/iamwatchdogs/Windows_DNS_Fixer/pulls">
+<img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="PRs Welcome">
+</a>
+
+<a href="https://github.com/iamwatchdogs/Windows_DNS_Fixer/issues">
+<img src="https://img.shields.io/github/issues/iamwatchdogs/Windows_DNS_Fixer.svg" alt="GitHub issues">
+</a>
+
+<a href="https://github.com/iamwatchdogs/Windows_DNS_Fixer.js/pulls?q=is%3Amerged">
+<img src="https://badgen.net/github/merged-prs/iamwatchdogs/Windows_DNS_Fixer" alt="GitHub pull-requests merged">
+</a>
+
+<a href="https://GitHub.com/iamwatchdogs/Windows_DNS_Fixer/releases/">
+<img src="https://img.shields.io/github/release/iamwatchdogs/Windows_DNS_Fixer" alt="GitHub release">
+</a>
+
+<a href="https://opensource.org/licenses/Apache-2.0">
+<img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" alt="License">
+</a>
+
 
 </div>
 <br>
